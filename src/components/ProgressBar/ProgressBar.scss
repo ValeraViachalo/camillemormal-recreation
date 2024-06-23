@@ -1,0 +1,36 @@
+@import "/src/styles/global.scss";
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 1vw;
+
+  @include hover {
+    .progress-bar__bar {
+      width: .6vw;
+    }
+  }
+  
+  &__bar {
+    width: 0.1vw;
+    height: 100%;
+    background-color: #fff;
+    transform-origin: top;
+    transition: width .4s cubic-bezier(.08,.99,.37,1);
+  }
+
+  &__range {
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    rotate: 90deg;
+    width: 100vh;
+    height: 1vw;
+    transform: translate(-2%, -30%);
+    transform-origin: left;
+    opacity: 0;
+  }
+}

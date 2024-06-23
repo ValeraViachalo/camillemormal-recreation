@@ -1,0 +1,51 @@
+@import "/src/styles/global.scss";
+
+.works-details {
+  .hero {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &__background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .description {
+      margin: 0 14vw 0 66vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+
+        & > span {
+          line-height: 100%;
+          letter-spacing: normal;
+          display: block;
+        }
+      }
+
+      .scroll-down {
+        transition: color 0.4s ease;
+
+        @include hover {
+          color: $g-70;
+        }
+
+        .micro-text {
+          font-weight: normal;
+          cursor: pointer;
+          padding: 1vw;
+        }
+      }
+    }
+  }
+}

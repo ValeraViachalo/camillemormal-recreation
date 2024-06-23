@@ -1,0 +1,103 @@
+@import "/src/styles/global.scss";
+
+.home {
+  .works {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .full-screen-work {
+      user-select: none;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      // left: 0;
+
+      &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transition: 1s cubic-bezier(0.08, 0.99, 0.39, 1);
+        transform-origin: scale filter;
+
+        &--hovering {
+          scale: 1.03;
+          filter: brightness(.8);
+        }
+      }
+
+      &__content {
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18vw;
+        width: 65vw;
+
+        .text {
+          cursor: pointer;
+          text-wrap: nowrap;
+          user-select: none;
+          position: relative;
+          width: 30vw;
+          text-align: center;
+        }
+      }
+
+      &__control {
+        font-weight: 100;
+        font-size: 3vw;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    &-thumbnail {
+      position: absolute;
+      bottom: 1vw;
+      right: 2vw;
+      display: flex;
+      gap: 0.5vw;
+
+      &__image {
+        width: 100%;
+        height: 100%;
+        filter: brightness(1.1);
+        transition: 0.5s ease;
+        transform-origin: opacity filter scale;
+        object-fit: cover;
+        cursor: pointer;
+
+        @include hover {
+          opacity: 0.5;
+          scale: 1.1;
+        }
+
+        &-wrapper {
+          aspect-ratio: 16/9;
+          width: 5vw;
+          overflow: hidden;
+        }
+
+        &--active {
+          filter: brightness(0.5);
+          scale: 1.2 !important;
+          opacity: 1 !important;
+          cursor: default;
+        }
+      }
+    }
+  }
+}
