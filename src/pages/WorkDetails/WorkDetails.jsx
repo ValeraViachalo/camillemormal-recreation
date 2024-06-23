@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import HeroWorksDetails from "./Hero/Hero";
-import { DataProvider } from "@/helpers/dataHelpers/dataProvider";
+import { DataContext, DataProvider } from "@/helpers/dataHelpers/dataProvider";
 import WorksLink from "./WorksLink/WorksLink";
 import { motion } from 'framer-motion';
 import { anim, PageAnim } from "@/helpers/anim";
@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import WorkImages from "./WorkImages/WorkImages";
 import { WorksHeader } from "./WorksHeader/WorksHeader";
 import { ProgressBar } from "@/components/ProgressBar/ProgressBar";
+import { useDocumentTitle } from "@/helpers/useDocumentTitle";
 
 
 export default function WorkDetails() {
@@ -35,6 +36,7 @@ export default function WorkDetails() {
   return (
     <motion.main {...anim(PageAnim.presencePage)} className="works-details">
       <DataProvider url={`/data/works/${project}.json`}>
+      <Title />
         <ProgressBar />
         <WorksHeader />
         <HeroWorksDetails />
@@ -42,5 +44,13 @@ export default function WorkDetails() {
         <WorksLink setNavigating={setNavigating} />
       </DataProvider>
     </motion.main>
+  );
+}
+
+const Title = () => {
+  const { data } = useContext(DataContext);
+
+  useDocumentTitle(
+    data.documentTitle ? data.documentTitle : "Camille Mormal"
   );
 }

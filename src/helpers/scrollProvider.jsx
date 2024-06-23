@@ -26,6 +26,15 @@ export const ScrollProvider = ({ children, wrapper = window }) => {
     });
   };
   
+  const scrollToImages = (e, currentLink) => {
+    e.preventDefault();
+    locomotiveScroll.current.scrollTo(currentLink, {
+      duration: 2,
+      offset: -100,
+      easing: (x) => easeInOutExpo(x),
+    });
+  };
+  
   const rangeScrollTo = (currentLink) => {
     locomotiveScroll.current.scrollTo(currentLink, {
       duration: 1.5,
@@ -48,6 +57,6 @@ export const ScrollProvider = ({ children, wrapper = window }) => {
   }, []);
 
   return (
-    <ScrollContext.Provider value={{ scrollTo, rangeScrollTo }}>{children}</ScrollContext.Provider>
+    <ScrollContext.Provider value={{ scrollTo, rangeScrollTo, scrollToImages }}>{children}</ScrollContext.Provider>
   );
 };

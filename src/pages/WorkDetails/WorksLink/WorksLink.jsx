@@ -9,6 +9,7 @@ import {
 import { DataContext } from "@/helpers/dataHelpers/dataProvider";
 import "./WorksLink.scss";
 import { useNavigate } from "react-router-dom";
+import AnchorLink from "@/components/AnchorLink/AnchorLink";
 
 export default function WorksLink({ setNavigating }) {
   const { data } = useContext(DataContext);
@@ -74,10 +75,10 @@ export default function WorksLink({ setNavigating }) {
           className="link__image"
         />
         <div className="link__title">
-          <div className="progress">
+          <AnchorLink toSection={document.body.scrollHeight} className="progress">
             <h1>{nextData.title}</h1>
             <span className="progress__num small-text">{progressValue}</span>
-          </div>
+          </AnchorLink>
           <h2>Next Project</h2>
         </div>
       </div>

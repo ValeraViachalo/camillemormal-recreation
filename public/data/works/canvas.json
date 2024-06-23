@@ -1,4 +1,5 @@
 {
+  "documentTitle": "Moco, Beyond The Canvas",
   "hero": {
     "image": "/images/works/canvas/hero.jpg",
     "title": [
@@ -6,7 +7,6 @@
     ],
     "leadDesigner": "To celebrate 100 years of Gucci, we partnered with The Savoy to create an immersive experience that honours regeneration",
     "doneWith": "AKQA Amsterdam"
-
   },
   "images": [
     ["/images/works/canvas/M0.jpg"],
